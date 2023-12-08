@@ -2,7 +2,7 @@
 var url = window.location.href;
 
 //definimos que nuestro sw.js se encuentra en el repositorio
-var ubicacionSw = '/sw.js';
+var ubicacionSw = '/versla/sw.js';
 
 if (navigator.serviceWorker) {
     /*Para que nuestro proyecto siga funcionando en localhost 
