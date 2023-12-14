@@ -1,5 +1,6 @@
 import tiendabd, { consultar, crearEtiqueta, eliminarTodo, eliminar } from "./funciones.js";
 
+<<<<<<< HEAD
 
 let bd = tiendabd("", { productos: `imagen, nombre` });
 
@@ -8,6 +9,23 @@ const nombre_prod = document.getElementById("nombre");
 const costo_prod = document.getElementById("imagen");
 const mensajesSinRegistros = document.getElementById("siRegistros");
 
+=======
+//Indicamos el nombre de la base de datos "Tienda", la tabla "productos"
+//y sus atributos ++id(autoincremental), nombre, precio y descripción.
+let bd = tiendabd("Tienda", { productos: `++id,nombre, precio,descripcion` });
+
+//recuperar inputs del formulario
+const clave_prod = document.getElementById("clave");
+const nombre_prod = document.getElementById("nombre");
+const costo_prod = document.getElementById("costo");
+const desc_prod = document.getElementById("descripcion");
+const mensajesSinRegistros = document.getElementById("siRegistros");
+
+//accediendo a los botones
+const btnGuardar = document.getElementById("guardar"); 
+const btnModificar = document.getElementById("modificar");
+const btnEliminarTodo = document.getElementById("eliminar-todo");
+>>>>>>> 52e24d470fbe6d776845e43905eaaab95c74ac95
 
 window.onload = () =>{
     cargarTabla();
@@ -17,7 +35,12 @@ window.onload = () =>{
 btnGuardar.onclick = (evento)=>{
     var data = {
         nombre: nombre_prod.value,
+<<<<<<< HEAD
         imagen: desc_prod.value
+=======
+        precio: costo_prod.value,
+        descripcion: desc_prod.value
+>>>>>>> 52e24d470fbe6d776845e43905eaaab95c74ac95
     };
     //Se envían los datos del formulario a la función guardar
     /*let flag = guardar(bd.productos, {
@@ -36,8 +59,13 @@ btnGuardar.onclick = (evento)=>{
         res.json
         //Se limpian las cajas de texto
         nombre_prod.value = "";
+<<<<<<< HEAD
         imagen_prod.value = "";
         
+=======
+        costo_prod.value = "";
+        desc_prod.value = "";
+>>>>>>> 52e24d470fbe6d776845e43905eaaab95c74ac95
 
         cargarTabla();
     })
@@ -53,12 +81,22 @@ btnModificar.onclick = (evento) => {
         //si existe el id se envían los datos del formulario a la función guardar del archivo
         bd.productos.update(id, {
             nombre: nombre_prod.value,
+<<<<<<< HEAD
             imagen: costo_prod.value,
+=======
+            precio: costo_prod.value,
+            descripcion: desc_prod.value,
+>>>>>>> 52e24d470fbe6d776845e43905eaaab95c74ac95
         }).then((resultado) => {
             if(resultado){
                 console.log("Modificación realizada");
                 nombre_prod.value = "";
+<<<<<<< HEAD
                 imagen_prod.value = "";
+=======
+                costo_prod.value = "";
+                desc_prod.value = "";
+>>>>>>> 52e24d470fbe6d776845e43905eaaab95c74ac95
                 cargarTabla();
             } else{
                 console.log("No se aplicaron los cambios");
@@ -72,7 +110,11 @@ btnEliminarTodo.onclick = () => {
     //se ejecuta el borrado de toda la base de datos y se crea nuevamente pero vacia
 
     bd.delete();
+<<<<<<< HEAD
     bd = tiendabd("PokeApi", { productos: `++nombre, imagen` });
+=======
+    bd = tiendabd("Tienda", { productos: `++id,nombre, precio,descripcion` });
+>>>>>>> 52e24d470fbe6d776845e43905eaaab95c74ac95
     bd.open();
     //bd = eliminarTodo("Tienda", { productos: `++id,nombre, precio,descripcion` })
     location.reload();
